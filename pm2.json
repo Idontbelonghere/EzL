@@ -1,0 +1,7 @@
+{
+	"apps":[{
+		"name":"EzLearning",
+		"script":"bin/www",
+		"watch":["app.js","./routes"]
+		}]
+}

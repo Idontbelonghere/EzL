@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title BV HomePage
+    link(rel="stylesheet", href="/stylesheets/bootstrap/bootstrap.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/login.css')
+    script(src="/javascripts/jquery.js")
+    script(src="/javascripts/bootstrap/bootstrap.min.js")
+    script(src="/javascripts/main.js")
+    script(src="/javascripts/childjs/login.js")
+
+  body
+    .jumbotron
+      .container-fluid
+        h1 Wukong PE
+          small   v1.0.0
+   .container#chooseVersion
+      form.form-cv
+        h2#cvHeader You Want To Use:
+        .btndiv
+          button(type="button")#offlineBtn.btn.btn-danger OFFLINE
+          button(type="button")#onlineBtn.btn.btn-success ONLINE
+
+   .container#onlineLoginPage
+      form.form-signin
+        h2.form-signin-heading Login
+        label.sr-only(for="inputEmail") Email
+        input#inputEmail.form-control(type="email",placeholder="Email",autofocus)
+        div#append1
+        label.sr-only(for="pw") Password
+        input#pw.form-control(type="password",placeholder="Password")
+        button(type="button")#loginBtn.btn.btn-primary.btn-block Login
+        button(type="button")#signupBtn.btn.btn-primary.btn-block Sign Up
+        button(type="button")#getbackBtn.btn.btn-danger.btn-block
+          span.glyphicon.glyphicon-arrow-left
+          span BACK
+
