@@ -7,12 +7,13 @@
 
 'use strict';
 $(function(){
+  var userInfo_str = sessionStorage.getItem("userInfo");
+  var userInfo_obj = JSON.parse(userInfo_str);
 
-
-  $('#usrName').text(sessionStorage.getItem("name"))
-  $('#usrId').text(sessionStorage.getItem("id"))
-  $('#instruction').text(sessionStorage.getItem("instruction"))
-  $('#emailSpan').text(sessionStorage.getItem("contact"))
+  $('#usrName').text(userInfo_obj.profile.name)
+  $('#usrId').text(userInfo_obj.accountId)
+  $('#instruction').text(userInfo_obj.profile.instruction)
+  $('#emailSpan').text(userInfo_obj.account)
 
   //change avatar.
   $('#uploadAvatar').on('change', function(){

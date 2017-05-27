@@ -5,44 +5,43 @@ html
     link(rel="stylesheet", href="/stylesheets/bootstrap/bootstrap.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/childcss/profile.css')
+    link(rel='stylesheet', href='/stylesheets/childcss/header_main.css')
     script(src="/javascripts/jquery.js")
     script(src="/javascripts/bootstrap/bootstrap.min.js")
-    script(src="/javascripts/main.js")
     script(src="/javascripts/childjs/profile.js")
 
 
   body
-    include header
-    .container#profileC
-        .row
-            .col-lg-3.col-md-3#usrDetails
-                #avatarBox
-                     img.avatarLarge(height='250px',width='250px',src="/images/avatar.jpg",data-toggle="tooltip",data-placement="bottom",title="Change Avatar")
-                    .avatar-upload
-                            input#uploadAvatar(type="file",style="display:none")
-                #usrName
-                #usrId
-                #introduction
-                #email
-                    span.glyphicon.glyphicon-envelope
-                    span#emailSpan
+    include header_main
+    .container
+      .row
+        .col-lg-3.col-md-3#usrDetails
+          #avatarBox
+            img.avatarLarge(height='250px',width='250px',src="/images/avatar.jpeg",data-toggle="tooltip",data-placement="bottom",title="Change Avatar")
+            .avatar-upload
+              input#uploadAvatar(type="file",style="display:none")
+          #usrName
+          #usrId
+          #introduction
+          #email
+            span.glyphicon.glyphicon-envelope
+            span#emailSpan
 
+        .col-lg-9.col-md-9
+          #group Ag Bg Cg
+          #projects
+            #yours
+            #others
 
-            .col-lg-9.col-md-9
-                #group Ag Bg Cg
-                #projects
-                    #yours
-                    #others
-
-       .modal.fade#imgPreview(tabindex='-1', role='dialog')
-          .modal-dialog(role='document')
-            .modal-content
-              .modal-header
-                button.close(type='button', data-dismiss='modal', aria-label='Close')
-                  span(aria-hidden='true') ×
-                h4.modal-title Avatar Preview
-              .modal-body
-                #imgPreviewBox
-              .modal-footer
-                button.btn.btn-default(type='button', data-dismiss='modal') Close
-                button.btn.btn-primary(type='button') Change
+      .modal.fade#imgPreview(tabindex='-1', role='dialog')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+              h4.modal-title Avatar Preview
+            .modal-body
+              #imgPreviewBox
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Close
+              button.btn.btn-primary(type='button') Change

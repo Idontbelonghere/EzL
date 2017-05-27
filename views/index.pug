@@ -1,13 +1,41 @@
 doctype html
 html
-	head
-		title Ez Learning
-		link(rel="stylesheet", href="/stylesheets/bootstrap/bootstrap.css")
-		link(rel='stylesheet', href='/stylesheets/style.css')
-		script(src="/javascripts/jquery.js")
-		script(src="/javascripts/bootstrap/bootstrap.min.js")
-		script(src="/javascripts/main.js")
-		script(src="/javascripts/childjs/index.js")
+  head
+    title EZL
+    link(rel="stylesheet", href="/stylesheets/bootstrap/bootstrap.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/childcss/ezl.css')
+    script(src="/javascripts/jquery.js")
+    script(src="/javascripts/bootstrap/bootstrap.min.js")
+    script(src="/javascripts/childjs/index.js")
 
-	body
-		include header
+  body
+    include header
+    .container
+      .col-lg-7.col-sm-7.col-md-7
+        #disc
+          h2 EzL
+          p All my friends are heathens take it slow
+          p Wait for them to ask you who you know
+          p Please don't make any sudden moves
+          p You don't know the half of the abuse
+      .col-lg-5.col-sm-5.col-md-5
+        #signUp-box
+          form
+            .form-group
+              label(for="username") User Name
+              input#inputEmail.form-control(type="text",placeholder="pick a username",autofocus)
+              div#append1
+            .form-group
+              label(for="inputEmail") Email
+              input#inputEmail.form-control(type="email",placeholder="Email",autofocus)
+              div#append1
+            .form-group
+              label(for="pw") Password
+              input#pw.form-control(type="password",placeholder="Password")
+            .form-group
+              label(for="pw_confirm") Confirm Password
+              input#pw.form-control(type="password",placeholder="Type password again.")
+
+            button(type="button")#signupBtn.btn.btn-success.btn-block Sign up for EZL
+
