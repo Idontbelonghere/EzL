@@ -10,10 +10,10 @@ $(function(){
   var userInfo_str = sessionStorage.getItem("userInfo");
   var userInfo_obj = JSON.parse(userInfo_str);
 
-  $('#usrName').text(userInfo_obj.profile.name)
-  $('#usrId').text(userInfo_obj.accountId)
-  $('#instruction').text(userInfo_obj.profile.instruction)
-  $('#emailSpan').text(userInfo_obj.account)
+  $('.usrName').text(userInfo_obj.profile.name)
+  $('#account').text(userInfo_obj.account)
+  $('#introduction').text(userInfo_obj.profile.introduction)
+  $('#snaSpan').text(userInfo_obj.profile.social_network_account)
 
   //change avatar.
   $('#uploadAvatar').on('change', function(){
@@ -26,6 +26,15 @@ $(function(){
   $('.avatarLarge').tooltip();
   $('.avatarLarge').on('click', function(){
     $('#uploadAvatar').click();
+  })
+
+  $('.nav li a').on('click', function(e){
+    e.preventDefault();
+    var s = $(this).text();
+    $.get('/user/'+s, function(data){
+      $('#tabContent').html(data);
+      
+    })
   })
   //add Groups(dbs)
 })

@@ -12,3 +12,22 @@ html
 
   body
     include header_main
+    .container
+      #teacherInfos
+        each val,index in data
+          .teacherCard
+            .avatar
+              p avatar
+            .basicInfos
+              p.name=val.profile.name
+              p.school=val.profile.school
+              p.major=val.profile.major
+              p.special=val.profile.speical
+              p.rating=val.rating
+            .tags
+              each v,i in val.tags
+                button.btn.btn-info v
+            .introduction
+              p=val.profile.introduction
+            .certifications
+              p certifications1,2,3

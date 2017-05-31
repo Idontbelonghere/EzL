@@ -12,7 +12,7 @@ html
 
 
   body
-    include header_main
+    include ../header_main
     .container
       .row
         .col-lg-3.col-md-3#usrDetails
@@ -20,19 +20,22 @@ html
             img.avatarLarge(height='250px',width='250px',src="/images/avatar.jpeg",data-toggle="tooltip",data-placement="bottom",title="Change Avatar")
             .avatar-upload
               input#uploadAvatar(type="file",style="display:none")
-          #usrName
-          #usrId
+          .usrName
+          #account
           #introduction
-          #email
+          #sna
             span.glyphicon.glyphicon-envelope
-            span#emailSpan
+            span#snaSpan
 
         .col-lg-9.col-md-9
-          #group Ag Bg Cg
-          #projects
-            #yours
-            #others
-
+          ul.nav.nav-tabs
+            li.active(role="presentation")
+              a Activities
+            li(role="presentation")
+              a Classes
+            li(role="presentation")
+              a Questions   
+          #tabContent
       .modal.fade#imgPreview(tabindex='-1', role='dialog')
         .modal-dialog(role='document')
           .modal-content
