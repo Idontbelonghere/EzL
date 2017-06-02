@@ -1,1 +1,1 @@
-.teacherCard{border:1px green solid;border-radius:3px;margin:20px;padding:20px}
+#teacherInfos{display:flex;flex-wrap:wrap;justify-content:space-around;align-items:center}.teacherCard{border:1px green solid;border-radius:3px;margin:20px;padding:20px;width:300px;display:flex;flex-wrap:wrap;justify-content:space-around;align-items:center;align-content:space-around}.avatar-teacher{border:1px gray solid;border-radius:50%}

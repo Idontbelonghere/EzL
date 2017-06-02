@@ -8,16 +8,41 @@ html
     link(rel='stylesheet', href='/stylesheets/childcss/header_main.css')
     script(src="/javascripts/jquery.js")
     script(src="/javascripts/bootstrap/bootstrap.min.js")
+    script(src="/javascripts/main.js")
     script(src="/javascripts/childjs/home.js")
 
   body
     include header_main
     .container
+      #carousel.carousel.slide(data-ride="carousel")
+        ol.carousel-indicators
+          li(data-target="#carousel",data-slide-to="0").active
+          li(data-target="#carousel",data-slide-to="1")
+          li(data-target="#carousel",data-slide-to="2")
+        .carousel-inner(role="listbox")
+          .item.active
+            img(src="/images/rbk.jpg",alt="first slide",height="300px")
+            .carouel-caption
+              p EzLife
+          .item
+            img(src="/images/ta.jpg",alt="sec slide",height="300px")
+            .carouel-caption
+              p EzLife2
+          .item
+            img(src="/images/wr.jpg",alt="3 slide",height="300px")
+            .carouel-caption
+              p EzLife3         
+        a.left.carousel-control(href="#carousel",role="button",data-slide="prev")
+          span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+          span.sr-only Previous
+        a.right.carousel-control(href="#carousel",role="button",data-slide="next")
+          span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+          span.sr-only Next
+                 
       #teacherInfos
         each val,index in data
           .teacherCard
-            .avatar
-              p avatar
+            img.avatar-teacher(src="/images/teacher.jpeg",width="150px",height="150px")
             .basicInfos
               p.name=val.profile.name
               p.school=val.profile.school

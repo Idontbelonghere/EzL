@@ -13,32 +13,31 @@ var db_inuse = JSON.parse(p).mongodb;
 //         db_inuse = JSON.parse(p).mongo_Address;
 //     }
 // })
-MongoClient.connect(db_inuse, function(err, db) {
-    if (err) {
-        console.log('Cannot Connect to Server.');
-    } else {
-        console.log("Connected correctly to server.");
-        db.close();
-    }
+var db;
+
+MongoClient.connect(db_inuse, function(err, database) {
+  if (err) {
+    console.log('Cannot Connect to Server.');
+  } else {
+    console.log("Connected correctly to server.");
+    db = database;
+  }
 });
 
 
-
 router.get('/', function(req, res, next) {
-    res.render('index')
+  res.render('index')
 })
 router.get('/login', function(req, res, next) {
-    res.render('login');
+  res.render('login');
 })
 
 router.get('/home', function(req, res, next) {
-    MongoClient.connect(db_inuse,function(err,db){
-      assert.equal(null,err);
-      db.collection('user.teacher').find().toArray().then(function(data){
-        res.render('home',{"data":data})
-        db.close();
-      })
+  db.collection('user.teacher').find().toArray().then(function(data) {
+    res.render('home', {
+      "data": data
     })
+  })
 })
 
 module.exports = router
