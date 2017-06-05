@@ -28,12 +28,12 @@ $(function(){
     $('#uploadAvatar').click();
   })
 
-  $('.nav li a').on('click', function(e){
+  $('.nav-tabs li a').on('click', function(e){
     e.preventDefault();
     var s = $(this).text();
     $.get('/user/'+s, function(data){
       $('#tabContent').html(data);
-      
+
     })
   })
   //add Groups(dbs)

@@ -44,4 +44,24 @@ router.get('/login', function(req, res, next) {
 
 });
 
+router.get('/signup', function(req, res, next) {
+  var qsurl = url.parse(req.url).query;
+  var username = qs.parse(qsurl)['username'];
+  var em = qs.parse(qsurl)['em'];
+  var pw = qs.parse(qsurl)['pw'];
+  // pw = encodePW(em,pw);
+
+  var std_obj = {
+    'account': em,
+    'password': pw,
+    'profile': {
+      'name': username
+    }
+  }
+  db.collection('user.student').insertOne(std_obj, function(err,r){
+    assert.equal(null,err);
+    res.send(r.result);
+  })
+});
+
 module.exports = router;

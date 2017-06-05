@@ -4,7 +4,7 @@ html
     title EZL
     link(rel="stylesheet", href="/stylesheets/bootstrap/bootstrap.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/childcss/ezl.css')
+    link(rel='stylesheet', href='/stylesheets/childcss/index.css')
     script(src="/javascripts/jquery.js")
     script(src="/javascripts/bootstrap/bootstrap.min.js")
     script(src="/javascripts/childjs/index.js")
@@ -24,18 +24,16 @@ html
           form
             .form-group
               label(for="username") User Name
-              input#inputEmail.form-control(type="text",placeholder="pick a username",autofocus)
-              div#append1
+              input#username.form-control(type="text",placeholder="pick a username",autofocus)
             .form-group
               label(for="inputEmail") Email
               input#inputEmail.form-control(type="email",placeholder="Email",autofocus)
-              div#append1
+              div#validateEmail
             .form-group
               label(for="pw") Password
               input#pw.form-control(type="password",placeholder="Password")
             .form-group
               label(for="pw_confirm") Confirm Password
-              input#pw.form-control(type="password",placeholder="Type password again.")
+              input#pw_confirm.form-control(type="password",placeholder="Type password again.")
 
             button(type="button")#signupBtn.btn.btn-success.btn-block Sign up for EZL
-
