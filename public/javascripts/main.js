@@ -14,4 +14,9 @@ $(function() {
   $('#profile').on('click', function() {
     window.open('/user', '_self')
   })
+
+  $('#settings').on('click', function() {
+    window.open('/settings', '_self')
+  })
+
 })

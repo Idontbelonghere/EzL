@@ -12,6 +12,7 @@ $(function(){
 
   $('.usrName').text(userInfo_obj.profile.name)
   $('#account').text(userInfo_obj.account)
+  $('#school').text(userInfo_obj.profile.school)
   $('#introduction').text(userInfo_obj.profile.introduction)
   $('#snaSpan').text(userInfo_obj.profile.social_network_account)
 

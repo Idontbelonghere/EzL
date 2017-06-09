@@ -32,6 +32,7 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 })
 
+
 router.get('/home', function(req, res, next) {
   db.collection('user.teacher').find().toArray().then(function(data) {
     res.render('home', {
@@ -39,5 +40,10 @@ router.get('/home', function(req, res, next) {
     })
   })
 })
+
+router.get('/settings', function(req, res, next) {
+  res.render('settings');
+})
+
 
 module.exports = router
