@@ -64,4 +64,41 @@ router.get('/signup', function(req, res, next) {
   })
 });
 
+router.get('/signup4teacher', function(req, res, next) {
+  var qsurl = url.parse(req.url).query;
+  var username = qs.parse(qsurl)['username'];
+  var em = qs.parse(qsurl)['em'];
+  var pw = qs.parse(qsurl)['pw'];
+  var ic = qs.parse(qsurl)['ic'];
+  // pw = encodePW(em,pw);
+  db.collection('invitation_code').findOne({value:ic},(function(d){
+    if(d.length>0){
+      console.log('invitation_code exsists.');
+      var teacher_obj = {
+        'account': em,
+        'password': pw,
+        'profile': {
+          'name': username
+        }
+      }
+      db.collection('user.teacher').insertOne(teacher_obj, function(err,r){
+        assert.equal(null,err);
+        res.send(r.result);
+      })
+    }else{
+      console.log('invitation_code not exsists.');
+      res.send({
+        "ok":0,
+        "reason":"invitation_code not exsists."
+      })
+    }
+  })
+});
+
+
+
+
+
+
+
 module.exports = router;

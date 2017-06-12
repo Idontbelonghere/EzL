@@ -31,7 +31,9 @@ router.get('/', function(req, res, next) {
 router.get('/login', function(req, res, next) {
   res.render('login');
 })
-
+router.get('/signup4teacher', function(req, res, next) {
+  res.render('signup4teacher');
+})
 
 router.get('/home', function(req, res, next) {
   db.collection('user.teacher').find().toArray().then(function(data) {

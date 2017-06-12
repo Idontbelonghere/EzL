@@ -57,21 +57,21 @@ html
       #teacherInfos
         each val,index in data
           .teacherCard
-            img.avatar-teacher(src="/images/teacher.jpeg",width="150px",height="150px")
+            img.avatar-teacher(src="/images/teacher.jpg",width="150px",height="150px")
             .rightSide
               p
                 span.name=val.profile.name
-                span.rating=val.rating                
+                span.rating=val.rating
               p.school=val.profile.school
               p.major=val.profile.major
               p.special=val.profile.speical
-              p.price=val.profile.price
+              p.price $#{val.profile.price}
               .tags
                 each v,i in val.tags
-                  button.btn.btn-info #{v}
+                  button.btn.btn-xs.btn-dark.demo4 #{v}
             .introduction
               p=val.profile.introduction
             .certifications
-              p certifications1,2,3
+              p <本站专业顶级认证>  <上海十佳青年帅哥>
             .order
               button.btn.btn-success.btn-order order

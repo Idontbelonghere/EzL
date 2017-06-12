@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title EZL
+    link(rel="stylesheet", href="/stylesheets/bootstrap/bootstrap.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/childcss/signup4teacher.css')
+    script(src="/javascripts/jquery.js")
+    script(src="/javascripts/bootstrap/bootstrap.min.js")
+    script(src="/javascripts/childjs/signup4teacher.js")
+
+  body
+    include header
+    .container
+      .col-lg-3.col-sm-3.col-md-3
+      .col-lg-5.col-sm-5.col-md-5
+        #signUp-box
+          form
+            .form-group
+              label(for="username") User Name
+              input#username.form-control(type="text",autofocus)
+            .form-group
+              label(for="inputEmail") Email
+              input#inputEmail.form-control(type="email",autofocus)
+              div#validateEmail
+            .form-group
+              label(for="pw") Password
+              input#pw.form-control(type="password")
+            .form-group
+              label(for="pw_confirm") Confirm Password
+              input#pw_confirm.form-control(type="password")
+            .form-group
+              label(for="invitationCode") Invitation Code
+              input#invitationCode.form-control(type="text")
+
+            button(type="button")#signupBtn.btn.btn-success.btn-block Sign up for EZL
