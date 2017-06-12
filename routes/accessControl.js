@@ -92,7 +92,7 @@ router.get('/signup4teacher', function(req, res, next) {
         "reason":"invitation_code not exsists."
       })
     }
-  })
+  }))
 });
 
 
