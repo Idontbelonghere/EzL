@@ -36,11 +36,18 @@ router.get('/signup4teacher', function(req, res, next) {
 })
 
 router.get('/home', function(req, res, next) {
-  db.collection('user.teacher').find().toArray().then(function(data) {
-    res.render('home', {
-      "data": data
+  var qsurl = url.parse(req.url).query;
+  var r = qs.parse(qsurl)['isT'];
+  if(r=="true"){
+    res.render('home4teacher');
+  }else{
+    db.collection('user.teacher').find().toArray().then(function(data) {
+      res.render('home', {
+        "data": data
+      })
     })
-  })
+  }
+
 })
 
 router.get('/settings', function(req, res, next) {

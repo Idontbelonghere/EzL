@@ -47,12 +47,19 @@ html
             .modal-header
               button.close(type="button",data-dismiss="modal", aria-label="Close")
                 span(aria-hidden="true") x
-              h4.black#orderModalLabel.modal-title Question Discription
+              h4.black#orderModalLabel.modal-title Question Card
             .modal-body.black
+              h5 Discription
               #summernote
+              
+              h5 Estimate Time
+              .btn-group(role="group")#time
+                button.btn.btn-sm.btn-default 0.5h
+                button.btn.btn-sm.btn-default 1h
+       
             .modal-footer
               button.btn.btn-danger(data-dismiss="modal") Cancle
-              button.btn.btn-success#submitBtn Send 
+              button.btn.btn-success#sendQuestion Send 
 
       #teacherInfos
         each val,index in data
@@ -67,8 +74,9 @@ html
               p.special=val.profile.speical
               p.price $#{val.profile.price}
               .tags
-                each v,i in val.tags
-                  button.btn.btn-xs.btn-dark.demo4 #{v}
+                - if(val.tags)
+                  each v,i in val.tags
+                    button.btn.btn-xs.btn-dark #{v}
             .introduction
               p=val.profile.introduction
             .certifications

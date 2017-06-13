@@ -9,8 +9,15 @@ $(function() {
     height: 400
   })
 
-  $('#submitBtn').on('click', function() {
+  $('#time .btn').on('click',function(){
+    var x = $(this).html();
+    console.log(x);
+    $("#time").attr("time",x)
+  })
+  $('#sendQuestion').on('click', function() {
     var mc = $("#summernote").summernote('code');
+    var time = $("#time").attr('time');
+    // $.post
 
   })
 

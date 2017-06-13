@@ -17,16 +17,25 @@ $(function() {
       $('#append1').text('Email Wrong Pattern.');
     }
   })
+  $('#isTeacherBtn').on('click',function(){
+    $('#isTeacherBtn span.glyphicon').toggleClass('glyphicon-remove');
+    $('#isTeacherBtn span.glyphicon').toggleClass('glyphicon-ok');
+    $(this).toggleClass('btn-danger');
+    $(this).toggleClass('btn-success');
+  })
+
+
   $('#loginBtn').on('click', () => {
     if ($('#append1').text() != '') {
       alert('Email Wrong Pattern.');
     } else {
       var em = $('#inputEmail').val();
       var pw = $('#pw').val();
+      var r = $("#isTeacherBtn span.glyphicon").hasClass('glyphicon-ok');
       if (em && pw) {
-        $.get('/ac/login?em=' + em + '&pw=' + pw, (d) => {
+        $.get('/ac/login?em=' + em + '&pw=' + pw+'&isT='+r, (d) => {
           if (d.status == 'ok') {
-            window.open('/home','_self');
+            window.open('/home?isT='+r,'_self');
             var str_obj = JSON.stringify(d.data)
             sessionStorage.setItem("userInfo",str_obj);
           } else {
