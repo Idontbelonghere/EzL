@@ -29,35 +29,26 @@ html
             form
               .form-group
                 label.uisHeadlabel Name
-                input(type="text").form-control              
-              .form-group
-                label.uisHeadlabel Gendar
-                br
-                .radio-inline
-                  input#femaleRadio(type="radio",name="sex",value="female")
-                  |female
-                .radio-inline
-                  input#maleRadio(type="radio",name="sex",value="male")
-                  |male
+                input(type="text").form-control#userName        
               .form-group
                 label.uisHeadlabel Introduction
-                textarea.form-control(row="4")
+                textarea.form-control(row="4")#userIntro
               .form-group
                 label.uisHeadlabel Social Network Account
-                input(type="text",placeholder="").form-control
+                input(type="text",placeholder="").form-control#userSNA
               .form-group
                 label.uisHeadlabel CellPhone 
-                input(type="text",placeholder="").form-control
+                input(type="text",placeholder="").form-control#userConnect
               .form-group
                 label.uisHeadlabel Address
-                input(type="text",placeholder="").form-control
+                input(type="text",placeholder="").form-control#userAddr
               .form-group
                 label.uisHeadlabel School
-                input(type="text",placeholder="").form-control
+                input(type="text",placeholder="").form-control#userSchool
               .form-group
                 label.uisHeadlabel Grade
-                input(type="text",placeholder="").form-control
-            button(type="submit").btn.btn-success Update Profile
+                input(type="text",placeholder="").form-control#userGrade
+            button(type="submit").btn.btn-success#updateBtn Update Profile
       .col-lg-3.col-md-3.col-sm-3
         p All my friends are heathens take it slow
         p All my friends are heathens take it slow

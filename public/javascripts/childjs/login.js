@@ -35,7 +35,7 @@ $(function() {
       if (em && pw) {
         $.get('/ac/login?em=' + em + '&pw=' + pw+'&isT='+r, (d) => {
           if (d.status == 'ok') {
-            window.open('/home?isT='+r,'_self');
+            window.open('/home','_self');
             var str_obj = JSON.stringify(d.data)
             sessionStorage.setItem("userInfo",str_obj);
           } else {

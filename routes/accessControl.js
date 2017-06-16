@@ -73,6 +73,7 @@ router.get('/signup', function(req, res, next) {
   var std_obj = {
     'account': em,
     'password': pw,
+    'role':'student',
     'profile': {
       'name': username
     }
@@ -99,6 +100,7 @@ router.get('/signup4teacher', function(req, res, next) {
       var teacher_obj = {
         'account': em,
         'password': pw,
+        'role':'teacher',
         'profile': {
           'name': username
         }
