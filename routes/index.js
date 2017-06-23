@@ -7,33 +7,33 @@ var qs = require('querystring');
 var assert = require('assert');
 var mongo = require('../database/database');
 var db;
-mongo.connect(function(d){
+mongo.connect(function(d) {
   db = d;
 })
 
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.render('index')
 })
-router.get('/login', function(req, res, next) {
+router.get('/login', (req, res, next) => {
   res.render('login');
 })
-router.get('/signup4teacher', function(req, res, next) {
+router.get('/signup4teacher', (req, res, next) => {
   res.render('signup4teacher');
 })
 
-router.get('/home', function(req, res, next) {
+router.get('/home', (req, res, next) => {
   res.render('home');
 })
-router.get('/home4student', function(req, res, next) {
+router.get('/home4student', (req, res, next) => {
   db.collection('user.teacher').find().toArray().then(function(data) {
     res.render('home4student', {
       "data": data
-    },function(err,html){
+    }, function(err, html) {
       res.send(html);
     })
   })
 })
-router.get('/home4teacher', function(req, res, next) {
+router.get('/home4teacher', (req, res, next) => {
   // db.collection('questions').find().toArray().then(function(data) {
   //   res.render('home4student', {
   //     "data": data
@@ -41,13 +41,17 @@ router.get('/home4teacher', function(req, res, next) {
   //     res.send(html);
   //   })
   // })
-  res.render('home4teacher', (err,html)=>{
+  res.render('home4teacher', (err, html) => {
     res.send(html);
   })
 })
 
-router.get('/settings', function(req, res, next) {
+router.get('/settings', (req, res, next) => {
   res.render('settings');
+})
+
+router.get('/meeting', (req, res, next) => {
+  res.render('meeting')
 })
 
 

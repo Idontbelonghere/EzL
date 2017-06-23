@@ -4,16 +4,15 @@ html
     title EZL
     link(rel="stylesheet", href="/stylesheets/bootstrap/bootstrap.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/childcss/home.css')
+    link(rel='stylesheet', href='/stylesheets/childcss/meeting.css')
     link(rel='stylesheet', href='/stylesheets/childcss/header_main.css')
-    link(rel='stylesheet', href='/summernote/summernote.css')
     script(src="/javascripts/jquery.js")
     script(src="/javascripts/bootstrap/bootstrap.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js")
-    script(src="/summernote/summernote.js")
+    script(src="http://cdn.aodianyun.com/wis/exchange.js")
     script(src="/javascripts/main.js")
-    script(src="/javascripts/childjs/home.js")
+    script(src="/javascripts/childjs/meeting.js")
 
   body
     include header_main
-    .container#homeContent
+    .container
+      iframe#wisIframe

@@ -3,8 +3,13 @@
 $(function() {
   var usr, p;
   var userInfo_str = sessionStorage.getItem("userInfo");
-  var userInfo_obj = JSON.parse(userInfo_str);
-  var acc = userInfo_obj.account;
+  if(userInfo_str){
+    var userInfo_obj = JSON.parse(userInfo_str);
+    var acc = userInfo_obj.account;
+    console.log('welcome back '+acc);
+  }else{
+    window.open('/','_self')
+  }
   $('#usrName').text(acc);
 
   $('#signout').on('click', () => {
