@@ -1,2 +1,22 @@
-h1 HOME4TEACHER
+.statusBox
+  span status:
+  button.btn.btn-primary(type="button") ONLINE
+
+
+.col-lg-6.col-md-6.col-sm-6#realTimeConnect
   
+.col-lg-6.col-md-6.col-sm-6#questionList
+    each val,ind in data
+      .questionBox
+        p.fromStudent 
+          |From Stu:
+          span=val.student
+        p.content 
+          |Q:
+          span=val.content
+        p.time 
+          |Time:1
+          span=val.time
+        button.btn.btn-success ACCEPT
+        button.btn.btn-danger REJECT
+    

@@ -34,16 +34,13 @@ router.get('/home4student', (req, res, next) => {
   })
 })
 router.get('/home4teacher', (req, res, next) => {
-  // db.collection('questions').find().toArray().then(function(data) {
-  //   res.render('home4student', {
-  //     "data": data
-  //   },function(err,html){
-  //     res.send(html);
-  //   })
-  // })
-  res.render('home4teacher', (err, html) => {
-    res.send(html);
-  })
+  db.collection('questions').find().toArray().then(function(data) {
+    res.render('home4teacher', {
+      "data": data
+    }, function(err, html) {
+      res.send(html);
+    })
+  });
 })
 
 router.get('/settings', (req, res, next) => {
