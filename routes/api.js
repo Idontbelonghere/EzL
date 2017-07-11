@@ -44,6 +44,23 @@ router.post('/saveQuestion', (req, res, next) => {
 //
 //   db.collection('user.'+role)
 // })
+router.get('/popOneUrl', (req,res,next)=>{
+  db.collection("urls").find().toArray( (arr)=>{
+    var v = arr.pop();
+    res.send(v);
+    db.collection("ruls").removeOne(v).then( (r)=>{
+      console.log(r);
+    })
+  })
+})
 
+router.get('/pushOneUrl', (req,res,next)=>{
+  var qsurl = url.parse(req.url).query;
+  var url = qs.parse(qsurl)['v'];
+
+  db.collection("urls").insertOne({value:url},(err,r)=>{
+    console.log(res);
+  })
+})
 
 module.exports = router;

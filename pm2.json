@@ -2,6 +2,6 @@
 	"apps":[{
 		"name":"EzLearning",
 		"script":"bin/www",
-		"watch":["app.js","./routes"]
+		"watch":["bin/www","app.js","./routes"]
 		}]
 }

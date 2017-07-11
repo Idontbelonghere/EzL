@@ -1,3 +1,4 @@
+'use strict'
 $(function() {
   $('#signInBtn').on('click', function() {
     window.open('/login', '_self');

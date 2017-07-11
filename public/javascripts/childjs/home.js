@@ -58,30 +58,53 @@ $(function() {
         })
 
       })
+      socket.on('teacher_connected',(msg)=>{
+        window.open('/meeting?teacher='+msg.teacher+'&student='+student,'_blank');
+      })
+
     })
+
   } else {
     $.get('/home4teacher', function(data){
+      let teacher = userInfo_obj._id;
       $('#homeContent').html(data);
-    })
-    socket.on('get_connect', (msg)=>{
-      console.log('????????????????GET CONNECT!!');
-      var x =
-      `<div class="questionBox">
-          <p class="fromStudent">
-            From Stu:
-            <span>${msg.student}</span>
-          </p>
-          <p class="content">
-            Q:
-            <span>${msg.content}</span>
-          </p>
-          <p class="time">
-            Time:
-            <span>${msg.time}</span>
-          </p>
-       </div>`;
+      socket.on('get_connect', (msg)=>{
+        console.log('????????????????GET CONNECT!!');
+        var x =
+        `<div class="questionBox">
+            <p class="fromStudent">
+              From Stu:
+              <span>${msg.student}</span>
+            </p>
+            <p class="content">
+              Q:
+              <span>${msg.content}</span>
+            </p>
+            <p class="time">
+              Time:
+              <span>${msg.time}</span>
+            </p>
+            <button class="btn btn-success reqAccecptBtn">ACCEPT</button>
+            <button class="btn btn-danger reqRejectBtn">REJECT</button>
+         </div>`;
+        $('#realTimeConnect').html(x);
+      });
 
-      $('#realTimeConnect').html(x);
+      $('.reqAccecptBtn').on('click', ()=>{
+
+        let fromstudent = $(this).parent().find('p.fromStudent span').html();
+        // fromstudent = $.trim(fromstudent);
+        let rep = {
+          teacher:teacher,
+          student:fromstudent,
+          value:1
+        };
+
+        socket.emit('replyFromTeacher',rep);
+        window.open('/meeting?teacher='+teacher+'&student='+fromstudent,'_blank');
+
+      })
     })
+
   }
 });

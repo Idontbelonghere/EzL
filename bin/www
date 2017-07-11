@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
 /**
@@ -42,12 +42,22 @@ io.on('connection', (socket)=>{
       userList.push(user);
     }
   });
-
+  socket.on('replyFromTeacher', (msg)=>{
+    let std = msg.student;
+    let socketId;
+    userList.some((user)=>{
+      if(user.userId == std && user.role =='student'){
+        socketId = user.socketId;
+        return true;
+      }
+    })
+    socket.to(socketId).emit('teacher_connected',msg)
+  })
   socket.on('connect_teacher', (msg)=>{
-    let x = msg.teacher;
+    let teacher = msg.teacher;
     let socketId;
     userList.some( (user)=>{
-      if(user.userId == x && user.role =='teacher'){
+      if(user.userId == teacher && user.role =='teacher'){
         socketId = user.socketId;
         return true;
       }
